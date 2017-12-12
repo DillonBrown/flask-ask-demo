@@ -9,8 +9,8 @@ app = Flask(__name__)
 ask = Ask(app,  "/reddit_reader")
 
 def get_headlines():
-    user_pass_dict = {'user' : 'USERNAME',
-                                  'passwd' : 'PASSWORD',
+    user_pass_dict = {'user' : 'SaltInThe',
+                                  'passwd' : 'passingGrades123',
                                   'api_type' : 'json'}
     sess = requests.Session()
     sess.headers.update({'User_Agent' : 'I am testing Alexa: SaltInThe'})
@@ -23,6 +23,7 @@ def get_headlines():
     titles = [unidecode.unidecode(listing['data']['title']) for listing in data['data']['children']]
     titles = '... '.join([i for i in titles])
     return titles
+
 
 @app.route('/')
 def homepage():
